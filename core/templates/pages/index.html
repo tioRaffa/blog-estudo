@@ -1,0 +1,122 @@
+{% extends 'global/base_places.html' %}
+
+
+{% block links %}
+  {% include 'partials/layout/global/scripts.html' %}
+{% endblock links %}
+
+
+{% block title %}
+    Por Lugares Incriveis | Home
+{% endblock title %}
+  
+
+{% block content %}
+
+
+  <!--================Header Menu Area =================-->
+  {% include 'partials/content/index/header/header_menu.html' %}
+  
+
+  <main class="site-main">
+
+    <!--================Hero Banner start =================-->  
+    {% include 'partials/content/index/banner/hero_banner.html' %}
+
+    <!--================ Blog slider start =================-->  
+    <!-- <section>
+      <div class="container">
+        <div class="owl-carousel owl-theme blog-slider">
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="img/blog/blog-slider/blog-slide1.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="img/blog/blog-slider/blog-slide2.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="img/blog/blog-slider/blog-slide3.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="img/blog/blog-slider/blog-slide1.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="img/blog/blog-slider/blog-slide2.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="img/blog/blog-slider/blog-slide3.png" alt="">
+            </div>
+            <div class="blog__slide__content">
+              <a class="blog__slide__label" href="#">Fashion</a>
+              <h3><a href="#">New york fashion week's continued the evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+    <!--================ Start Blog Post Area =================-->
+    <section class="blog-post-area section-margin mt-4">
+      <div class="container">
+
+        <div class="row">
+          <!-- Start Blog Post  -->
+          {% include 'partials/content/index/blog_post_area/post.html' %}
+          
+
+          <!-- Start Blog Post Siddebar -->
+          {% include 'partials/content/index/blog_post_area/post_siddebar.html' %}
+
+        </div>
+
+      </div>
+    </section>
+    
+</main>
+
+  <!--================ Footer Area =================-->
+  {% include 'partials/layout/global/footer.html' %}
+
+
+{% block script %}
+  {% include 'partials/layout/global/scripts.html' %}
+{% endblock script %}
+  
+{% endblock content %}
