@@ -1,0 +1,25 @@
+{% load static %}
+<section class="blog-post-area section-margin">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+
+            <!-- PUBLICAÇÃO  -->
+            {% include 'partials/content/blog_detail/post/post.html' %}
+            
+            
+            <!-- COMENTARIOS -->
+            {% include 'partials/content/blog_detail/post/comments.html' %}
+            
+            
+            <!-- FORMULARIO DE COMENTARIO  -->
+            {% include 'partials/content/blog_detail/post/form_comments.html' %}
+            
+        </div>
+        
+        <!-- Start Blog Post Siddebar -->
+        {% include 'partials/content/blog_detail/post/post_siddebar.html' %}
+
+        </div>
+      </div>
+  </section>
