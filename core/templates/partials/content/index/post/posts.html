@@ -17,7 +17,7 @@
         </a>
         <p class="tag-list-inline">Categoria: <a href="#">{{ post.category }}</a></p>
         <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-        <a class="button" href="#">Ler Mais <i class="ti-arrow-right"></i></a>
+        <a class="button" href="{% url 'places:detail' post.id %}">Ler Mais <i class="ti-arrow-right"></i></a>
       </div>
     </div>
     {% endfor %}

@@ -20,50 +20,25 @@
       <div class="single-sidebar-widget popular-post-widget">
         <h4 class="single-sidebar-widget__title">Publicações Recentes</h4>
         <div class="popular-post-list">
-          <div class="single-post-list">
-            <div class="thumb">
-              <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb1.png' %}" alt="">
-              <ul class="thumb-info">
-                <li><a href="#">Adam Colinge</a></li>
-                <li><a href="#">Dec 15</a></li>
-              </ul>
+          
+          {% for recent in recents %}
+            <div class="single-post-list">
+              <div class="thumb">
+                <img class="card-img rounded-0" src="{{ recent.image.url }}" alt="">
+                <ul class="thumb-info">
+                  <li><a href="#">{{ recent.author.username }}</a></li>
+                  <li><a href="#">{{ recent.created_at|date:"d/m/Y" }}</a></li>
+                </ul>
+              </div>
+              <div class="details mt-20">
+                <a href="#">
+                  <h6>{{ recent.title }}</h6>
+                </a>
+              </div>
             </div>
-            <div class="details mt-20">
-              <a href="#">
-                <h6>Accused of assaulting flight attendant miktake alaways</h6>
-              </a>
-            </div>
-          </div>
-          <div class="single-post-list">
-            <div class="thumb">
-              <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb2.png' %}" alt="">
-              <ul class="thumb-info">
-                <li><a href="#">Adam Colinge</a></li>
-                <li><a href="#">Dec 15</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="#">
-                <h6>Tennessee outback steakhouse the
-                  worker diagnosed</h6>
-              </a>
-            </div>
-          </div>
-          <div class="single-post-list">
-            <div class="thumb">
-              <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb3.png' %}" alt="">
-              <ul class="thumb-info">
-                <li><a href="#">Adam Colinge</a></li>
-                <li><a href="#">Dec 15</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="#">
-                <h6>Tennessee outback steakhouse the
-                  worker diagnosed</h6>
-              </a>
-            </div>
-          </div>
+          {% endfor %}
+          
+
         </div>
       </div>
       <!-- EDITAR -->
