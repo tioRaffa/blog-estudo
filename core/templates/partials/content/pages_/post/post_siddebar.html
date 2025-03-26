@@ -9,7 +9,7 @@
         <ul class="cat-list mt-20">
           {% for category in categories %}
             <li>
-              <a href="#" class="d-flex justify-content-between">
+              <a href="{% url 'places:category' category.id %}" class="d-flex justify-content-between">
                 <p>{{ category }}</p>
               </a>
             </li>

@@ -13,7 +13,7 @@ class BaseView:
         context = super().get_context_data(*args, **kwargs)
         
         category = CategoryModel.objects.all()
-        recent = PostModel.objects.filter(is_published=True).order_by('-id')[:2]
+        recent = PostModel.objects.filter(is_published=True).order_by('-id')[:3]
         
         context.update({
             'categories': category,

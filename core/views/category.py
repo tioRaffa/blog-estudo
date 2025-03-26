@@ -6,6 +6,7 @@ class CategoryPage(BaseView, ListView):
     model = PostModel
     template_name = 'pages/category.html'
     context_object_name = 'posts'
+    paginate_by = 8
     
     def get_queryset(self, *args, **kwargs):
         queryset = super().get_queryset(*args, **kwargs)

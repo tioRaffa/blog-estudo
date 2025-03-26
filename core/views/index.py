@@ -8,6 +8,7 @@ class IndexView(BaseView, ListView):
     model = PostModel
     context_object_name = 'posts'
     template_name = 'pages/index.html'
+    paginate_by = 4
     
     
     

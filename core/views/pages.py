@@ -6,5 +6,6 @@ class PagesView(BaseView, ListView):
     model = PostModel
     context_object_name = 'posts'
     template_name = 'pages/page_publication.html'
+    paginate_by = 8
     
     
