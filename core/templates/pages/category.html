@@ -1,0 +1,33 @@
+{% extends 'global/base_places.html' %}
+{% load static %}
+
+{% block links %}
+  {% include 'partials/layout/links.html' %}
+{% endblock links %}
+
+{% block title %}Sensive | Paginas{% endblock title %}
+
+  
+{% block content %}
+
+  <!--================Header Menu Area =================-->
+  {% include 'partials/content/global/navbar.html' %}
+  
+  
+  <!--================ Hero sm Banner start =================-->    
+  {% include 'partials/content/category/banner.html' %}
+  
+  
+  <!--================ Start Blog Post Area =================-->
+  {% include 'partials/content/category/post/main.html' %}
+  
+
+  <!--================ Start Footer Area =================-->
+  {% include 'partials/content/global/footer.html' %}
+
+
+{% block script %}
+  {% include 'partials/layout/scripts.html' %}
+{% endblock script %}
+
+{% endblock content %}
