@@ -12,7 +12,7 @@
           </ul>
         </div>
         <div class="details mt-20">
-          <a href="#">
+          <a href="{% url 'places:detail' post.id %}">
             <h3>{{ post.title|truncatechars:30 }}</h3>
           </a>
           <p>{{ post.description|truncatechars:150 }}</p>
