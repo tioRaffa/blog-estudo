@@ -1,159 +1,28 @@
 {% load static %}
 <div class="row">
-
+  
+  {% for post in posts %}
     <div class="col-md-6">
       <div class="single-recent-blog-post card-view">
         <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card1.png' %}" alt="">
+          <img class="card-img rounded-0" src="{{ post.image.url }}" alt="" height="200">
           <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
+            <li><a href="#"><i class="ti-user"></i>{{ post.author.username }}</a></li>
             <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
           </ul>
         </div>
         <div class="details mt-20">
           <a href="#">
-            <h3>Fast cars and rickety bridges as 
-                he grand tour returns</h3>
+            <h3>{{ post.title|truncatechars:30 }}</h3>
           </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Ler mais<i class="ti-arrow-right"></i></a>
+          <p>{{ post.description|truncatechars:150 }}</p>
+          <a class="button" href="{% url 'places:detail' post.id %}">Ler mais<i class="ti-arrow-right"></i></a>
         </div>
       </div>
     </div>
+  {% endfor %}
+  
 
-
-    <div class="col-md-6">
-      <div class="single-recent-blog-post card-view">
-        <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card2.png' %}" alt="">
-          <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-          </ul>
-        </div>
-        <div class="details mt-20">
-          <a href="blog-single.html">
-            <h3>Harvey Weinstein's senual assault
-                trial set for May</h3>
-          </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="single-recent-blog-post card-view">
-        <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card3.png' %}" alt="">
-          <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-          </ul>
-        </div>
-        <div class="details mt-20">
-          <a href="blog-single.html">
-            <h3>Fast cars and rickety bridges as 
-                he grand tour returns</h3>
-          </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="single-recent-blog-post card-view">
-        <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card4.png' %}" alt="">
-          <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-          </ul>
-        </div>
-        <div class="details mt-20">
-          <a href="blog-single.html">
-            <h3>Harvey Weinstein's senual assault
-                trial set for May</h3>
-          </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="single-recent-blog-post card-view">
-        <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card5.png' %}" alt="">
-          <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-          </ul>
-        </div>
-        <div class="details mt-20">
-          <a href="blog-single.html">
-            <h3>Fast cars and rickety bridges as 
-                he grand tour returns</h3>
-          </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="single-recent-blog-post card-view">
-        <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card6.png' %}" alt="">
-          <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-          </ul>
-        </div>
-        <div class="details mt-20">
-          <a href="blog-single.html">
-            <h3>Harvey Weinstein's senual assault
-                trial set for May</h3>
-          </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="single-recent-blog-post card-view">
-        <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card7.png' %}" alt="">
-          <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-          </ul>
-        </div>
-        <div class="details mt-20">
-          <a href="blog-single.html">
-            <h3>Fast cars and rickety bridges as 
-                he grand tour returns</h3>
-          </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="single-recent-blog-post card-view">
-        <div class="thumb">
-          <img class="card-img rounded-0" src="{% static 'img/blog/thumb/thumb-card8.png' %}" alt="">
-          <ul class="thumb-info">
-            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-          </ul>
-        </div>
-        <div class="details mt-20">
-          <a href="blog-single.html">
-            <h3>Harvey Weinstein's senual assault
-                trial set for May</h3>
-          </a>
-          <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-          <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
+    
   </div>
   

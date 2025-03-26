@@ -1,4 +1,10 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from core.models import PostModel
+from .cbv_base import BaseView
 
-def pages(request):
-    return render(request, 'pages/pages.html')
+class PagesView(BaseView, ListView):
+    model = PostModel
+    context_object_name = 'posts'
+    template_name = 'pages/page_publication.html'
+    
+    
