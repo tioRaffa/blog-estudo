@@ -15,11 +15,43 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
 
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav justify-content-center">
+            <ul class="nav navbar-nav menu_nav justify-content-center ">
               <li class="nav-item active"><a class="nav-link" href="{% url 'places:index' %}">Home</a></li> 
               <li class="nav-item"><a class="nav-link" href="{% url 'places:pages' %}">Paginas</a></li> 
               <li class="nav-item"><a class="nav-link" href="{% url 'places:contact' %}">Contato</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+              
+              <!-- LOGADO -->
+              {% if request.user.is_authenticated %}
+                <div class="nav-item dropdown">
+                  
+                  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="#" class="avatar" alt="">
+                    {{ request.user.username }}<b class="caret"></b></a>
+
+                  <div class="dropdown-menu" style="margin-top: -12px;">
+                    <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Perfil</a></a>
+                    <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Publicações</a></a>
+                    <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Configurações</a></a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item"><i class="fa-solid fa-power-off"></i> Sair</a></a>
+                  </div>
+                </div>
+
+              {% else %}
+                
+                <li class="nav-item">
+                  <a 
+                  class="nav-link" 
+                  href="#" 
+                  data-toggle="modal" 
+                  data-target="LoginUserModal"
+                  hx-get="{% url 'places:login' %}"
+                  hx-target="#login_content">
+                    Login
+                  </a>
+                </li>
+             
+              {% endif %}
+                
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
               <li><a href="https://www.linkedin.com/in/rafael-muniz-3a7285323/" target="_blank"><i class="ti-linkedin"></i></a></li>

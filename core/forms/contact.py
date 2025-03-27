@@ -4,6 +4,8 @@ from django.core.exceptions import ValidationError
 from django.core.mail import EmailMessage
 from django import forms
 
+
+
 def validate_custom_mail(value):
     if not value.endswith('@gmail.com'):
         raise ValidationError(
