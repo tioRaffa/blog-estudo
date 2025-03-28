@@ -24,31 +24,31 @@
               {% if request.user.is_authenticated %}
                 <div class="nav-item dropdown">
                   
-                  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="#" class="avatar" alt="">
+                  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="{% static 'img/blog/download.jpeg' %}" class="avatar" alt="">
                     {{ request.user.username }}<b class="caret"></b></a>
 
                   <div class="dropdown-menu" style="margin-top: -12px;">
-                    <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Perfil</a></a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Publicações</a></a>
+                    <a href="#" class="dropdown-item"><i class="fa-solid fa-book"></i> Publicações</a></a>
                     <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Configurações</a></a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item"><i class="fa-solid fa-power-off"></i> Sair</a></a>
                   </div>
                 </div>
+                
 
               {% else %}
-                
-              <li class="nav-item">
-                <a 
-                class="nav-link" 
-                href="#" 
-                data-toggle="modal" 
-                data-target="#LoginUserModal"
-                hx-get="{% url 'places:login' %}"
-                hx-target="#login_content">
-                  Login
-                </a>
-              </li>
+                <li class="nav-item">
+                  <a 
+                  class="nav-link" 
+                  href="#" 
+                  data-toggle="modal" 
+                  data-target="#LoginUserModal"
+                  hx-get="{% url 'places:login' %}"
+                  hx-target="#login_content"
+                  >
+                    Login
+                  </a>
+                </li>
              
               {% endif %}
                 
@@ -61,4 +61,6 @@
         </div>
       </nav>
     </div>
-  </header>
+</header>
+
+{% include 'partials/content/modal/login_modal.html' %}
