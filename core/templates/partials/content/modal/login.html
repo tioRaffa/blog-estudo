@@ -1,15 +1,15 @@
 {% load static %}
 <div class="login-form">
-    <form action="#" method="POST" enctype="multipart/form-data" class="modal-content">
+    <form action="{% url 'places:login' %}" method="POST" enctype="multipart/form-data" class="modal-content">
         {% csrf_token %}
         
-        <h2 class="text-center">Sign in</h2>		
+        <h2 class="text-center">Login</h2>		
         <div class="text-center social-btn">
-            <a href="#" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-            <a href="#" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
-			<a href="#" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+            <a href="#" class="btn btn-primary btn-block"><i class="fa-brands fa-facebook"></i> Entrar com <b>Facebook</b></a>
+            <a href="#" class="btn btn-info btn-block"><i class="fa-brands fa-x-twitter"></i> Entrar com <b>Twitter</b></a>
+			<a href="#" class="btn btn-danger btn-block"><i class="fa-brands fa-google"></i> Entrar com <b>Google</b></a>
         </div>
-		<div class="or-seperator"><i>or</i></div>
+		<div class="or-seperator"><i>ou</i></div>
         <div class="form-group">
         	<div class="input-group">                
                 <div class="input-group-prepend">
@@ -17,7 +17,7 @@
                         <span class="fa fa-user"></span>
                     </span>                    
                 </div>
-                <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                <input type="text" class="form-control" name="username" placeholder="Nome de Usuario" required="required">
             </div>
         </div>
 		<div class="form-group">
@@ -27,17 +27,13 @@
                         <i class="fa fa-lock"></i>
                     </span>                    
                 </div>
-                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                <input type="password" class="form-control" name="password" placeholder="Senha" required="required">
             </div>
         </div>        
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-block login-btn">Sign in</button>
+            <button type="submit" class="btn btn-success btn-block login-btn">Entrar</button>
         </div>
-        <div class="clearfix">
-            <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-            <a href="#" class="float-right text-success">Forgot Password?</a>
-        </div>  
+        <div class="hint-text">Ainda nao tem uma conta? <a href="#" class="text-success">Registrar-se!</a></div>
         
     </form>
-    <div class="hint-text">Don't have an account? <a href="#" class="text-success">Register Now!</a></div>
 </div>

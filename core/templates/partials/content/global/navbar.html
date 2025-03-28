@@ -38,17 +38,17 @@
 
               {% else %}
                 
-                <li class="nav-item">
-                  <a 
-                  class="nav-link" 
-                  href="#" 
-                  data-toggle="modal" 
-                  data-target="LoginUserModal"
-                  hx-get="{% url 'places:login' %}"
-                  hx-target="#login_content">
-                    Login
-                  </a>
-                </li>
+              <li class="nav-item">
+                <a 
+                class="nav-link" 
+                href="#" 
+                data-toggle="modal" 
+                data-target="#LoginUserModal"
+                hx-get="{% url 'places:login' %}"
+                hx-target="#login_content">
+                  Login
+                </a>
+              </li>
              
               {% endif %}
                 

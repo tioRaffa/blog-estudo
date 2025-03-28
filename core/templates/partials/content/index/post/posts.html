@@ -4,16 +4,16 @@
     {% for post in posts %}
     <div class="single-recent-blog-post">
       <div class="thumb">
-        <img class="img-fluid" src="{{ post.image.url }}" alt="">
-        <ul class="thumb-info">
+        <img class="img-fluid" src="{{ post.image.url }}" alt="" style="height: 450px; width: 100%; object-fit: cover;">
+        <ul class="thumb-info" style="position: relative; top: -50px; ">
           <li><a href="#"><i class="ti-user"></i>{{ post.author.username }}</a></li>
           <li><a href="#"><i class="ti-notepad"></i>{{ post.created_at|date:"d/m/Y" }}</a></li>
           <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
         </ul>
       </div>
-      <div class="details mt-20">
-        <a href="#">
-          <h3>{{ post.title }}</h3>
+      <div class="details mt-20" style="position: relative; top: -80px;">
+        <a href="#" style="text-decoration: none;" >
+          <h3 style="color: black;">{{ post.title }}</h3>
         </a>
         <p class="tag-list-inline">Categoria: <a href="{% url 'places:category' post.category.id %}">{{ post.category }}</a></p>
         <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
