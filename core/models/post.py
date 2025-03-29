@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
+
 
 class CategoryModel(models.Model):
     name = models.CharField(("Nome"), max_length=50)
@@ -25,4 +27,4 @@ class PostModel(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("_detail", kwargs={"pk": self.pk})
+        return reverse("places:detail", kwargs={"pk": self.pk})

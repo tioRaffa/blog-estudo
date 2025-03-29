@@ -33,7 +33,10 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-block login-btn">Entrar</button>
         </div>
-        <div class="hint-text">Ainda nao tem uma conta? <a href="#" class="text-success">Registrar-se!</a></div>
+        <div class="hint-text">Ainda nao tem uma conta? 
+            <a href="{% url 'authors:register_user' %}" class="text-success">
+                Registrar-se!</a></div>
         
     </form>
 </div>
+{% include 'partials/content/modal/login_modal.html' %}

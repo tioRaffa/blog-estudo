@@ -29,7 +29,7 @@
 
                   <div class="dropdown-menu" style="margin-top: -12px;">
                     <a href="#" class="dropdown-item"><i class="fa-solid fa-book"></i> Publicações</a></a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Configurações</a></a>
+                    <a href="{% url 'authors:profile' %}" class="dropdown-item"><i class="fa fa-sliders"></i> Configurações</a></a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item"><i class="fa-solid fa-power-off"></i> Sair</a></a>
                   </div>
@@ -62,5 +62,4 @@
       </nav>
     </div>
 </header>
-
 {% include 'partials/content/modal/login_modal.html' %}
