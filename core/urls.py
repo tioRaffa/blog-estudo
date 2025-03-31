@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import IndexView, ContactPage, PagesView, DetailPage, CategoryPage, login_view
+from core.views import *
 
 
 app_name = 'places'

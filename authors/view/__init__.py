@@ -1,2 +1,2 @@
 from .authors import teste
-from . register import register
+from .register import RegisterView

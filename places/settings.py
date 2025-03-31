@@ -145,3 +145,6 @@ if DEBUG:
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smpt.EmailBackend'
     
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+    

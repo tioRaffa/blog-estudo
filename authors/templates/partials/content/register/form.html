@@ -1,45 +1,60 @@
 {% load static %}
-<form action="#">
-    
+
+<form action="{% url 'authors:register_user' %}" method="POST">
+    {% csrf_token %}
+
     <div class="user-details">
-      <!-- Input for Full Name -->
+      <!-- Name -->
       <div class="input-box">
         <span class="details">Primeiro Nome</span>
-        <input type="text" placeholder="Digite seu Primeiro Nome" required>
+        <input type="text" placeholder="Digite seu Primeiro Nome" required name="first_name">
+        {% for error in form.first_name.errors %}
+          <p class="error" style="color: red;">{{ error }}</p>
+        {% endfor %}
       </div>
 
-      <!-- Input for Username -->
+      <!-- Last Name -->
       <div class="input-box">
         <span class="details">Ultimo Nome</span>
-        <input type="text" placeholder="Digite seu Ultimo Nome" required>
+        <input type="text" placeholder="Digite seu Ultimo Nome" required name="last_name">
       </div>
 
-      <!-- Input for Email -->
+      <!-- Email -->
       <div class="input-box">
         <span class="details">Email</span>
-        <input type="text" placeholder="seu-email@gmail.com" required>
+        <input type="text" placeholder="seu-email@gmail.com" required name="email">
+        {% for error in form.email.errors %}
+          <p class="error" style="color: red;">{{ error }}</p>
+        {% endfor %}
+
       </div>
 
-      <!-- Input for Phone Number -->
+      <!-- User Namer -->
       <div class="input-box">
         <span class="details">Nome de Usuario</span>
-        <input type="text" placeholder="Digite seu Nome de Usuario" required>
+        <input type="text" placeholder="Digite seu Nome de Usuario" required name="username">
+        {% for error in form.username.errors %}
+          <p class="error" style="color: red;">{{ error }}</p>
+        {% endfor %}
       </div>
 
-      <!-- Input for Password -->
+      <!-- Password -->
       <div class="input-box">
         <span class="details">Senha</span>
-        <input type="text" placeholder="Digite sua Senha" required>
+        <input type="text" placeholder="Digite sua Senha" required name="password">
+        {% for error in form.password.errors %}
+          <p class="error" style="color: red;">{{ error }}</p>
+        {% endfor %}
       </div>
 
-      <!-- Input for Confirm Password -->
+      <!-- Confirm Password -->
       <div class="input-box">
         <span class="details">Confirme sua Senha</span>
-        <input type="text" placeholder="Confirme sua Senha" required>
+        <input type="text" placeholder="Confirme sua Senha" required name="password2">
       </div>
     </div>
     
-    <!-- Submit button -->
+    <!-- button -->
     <div class="button">
       <input type="submit" value="Cadastrar">
     </div>
