@@ -22,7 +22,8 @@ class RegisterView(View):
         
         if form.is_valid():
             user = form.save(commit=False)
-            
-            return redirect('authors:register_user')
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('/?login_modal=true')
 
         return self.render_page(request, form)

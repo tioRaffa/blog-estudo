@@ -40,6 +40,7 @@
                 <li class="nav-item">
                   <a 
                   class="nav-link" 
+                  id="auto-click-link"
                   href="#" 
                   data-toggle="modal" 
                   data-target="#LoginUserModal"
@@ -61,5 +62,16 @@
         </div>
       </nav>
     </div>
+
 </header>
+
+<script type="text/javascript">
+  window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('login_modal') && urlParams.get('login_modal') === 'true') {
+          document.getElementById("auto-click-link").click();
+      }
+  }
+</script>
+
 {% include 'partials/content/modal/login_modal.html' %}
