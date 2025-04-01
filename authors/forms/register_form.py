@@ -7,17 +7,38 @@ from django.contrib.auth.password_validation import CommonPasswordValidator
 from django.core.exceptions import ValidationError
 import re
 
-class RegisterForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=30, widget=forms.TextInput())
-    last_name = forms.CharField(max_length=30, widget=forms.TextInput())
-    username = forms.CharField(max_length=50, widget=forms.TextInput())
-    email = forms.EmailField(widget=forms.EmailInput())
-    password = forms.CharField(max_length=50, widget=forms.PasswordInput())
-    password2 = forms.CharField(max_length=50, widget=forms.PasswordInput())
 
+class RegisterForm(forms.ModelForm):
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'input-box', 'placeholder': 'ex: Ab12345678!'}),
+    )
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'input-box', 'placeholder': 'Confirme sua Senha'}),
+    )
+    username = forms.CharField(
+        max_length=50,
+        min_length=2,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'input-box',
+            'placeholder': 'Digite seu Nome de Usuário',
+        })
+    )
+    
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password']
+        fields = [
+            'first_name',
+            'last_name',
+            'email',
+            'username',
+            'password'
+        ]
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'input-box', 'placeholder': 'Digite seu Nome', }),
+            'last_name': forms.TextInput(attrs={'class': 'input-box', 'placeholder': 'Digite seu Último Nome',}),
+            'email': forms.EmailInput(attrs={'class': 'input-box', 'placeholder': 'ex: exemploemail@gmail.com',}),
+        }
         
         
     def clean_password(self):
@@ -33,29 +54,27 @@ class RegisterForm(forms.ModelForm):
         
         if User.objects.filter(email=email_data).exists():
             raise ValidationError(
-                'Email ja Cadastrado, digite outro email!',
-                code='invalid'
+                'Email ja Cadastrado, digite outro email!'
             )
         return email_data
         
     
-    def clean(self):
-        cleaned_data = super().clean()
+    def clean_password2(self):
+        password_data = self.cleaned_data.get('password')
+        password2_data = self.cleaned_data.get('password2')
         
-        password = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password2')
-        
+        if password_data != password2_data:
+            raise ValidationError(
+                'Confirme sua senha Corretamente!'
+            )
+        return password2_data
+            
+    def clean_last_name(self):
         first_name = self.cleaned_data.get('first_name')
         last_name = self.cleaned_data.get('last_name')
         
-        if password != password2:
-            raise ValidationError(
-                'Erro na confirmação de senha. Tente novamente!',
-                code='invalid'
-            )
-        
         if first_name == last_name:
             raise ValidationError(
-                'Primeiro nome e ultimo nao podem ser iguais! ',
-                code='invalid'
+                'Ultimo nome nao pode ser igual ao Primeiro!'
             )
+        return last_name
