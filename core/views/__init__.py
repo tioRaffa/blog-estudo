@@ -3,4 +3,4 @@ from .category import CategoryPage
 from .index import IndexView
 from .pages import PagesView
 from .contato import ContactPage
-from .login import login_view
+from .login import LoginUserView, logout_user
