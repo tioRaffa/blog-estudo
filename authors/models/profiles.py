@@ -10,5 +10,4 @@ class Profile(models.Model):
     def __str__(self):
         return self.author.username
 
-    def get_absolute_url(self):
-        return reverse("detail", kwargs={"pk": self.pk})
+    

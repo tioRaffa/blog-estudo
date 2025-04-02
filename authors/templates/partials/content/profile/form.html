@@ -1,37 +1,43 @@
-<form>
+<form action="{% url 'authors:profile' %}" method="POST">
+    {% csrf_token %}
     <!-- Form Group (username)-->
     <div class="mb-3">
         <label class="small mb-1" for="inputUsername">Nome de Usuario </label>
-        <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username">
+        <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" name="username" value="{{ request.user.username }}">
+        
     </div>
 
     <!-- Form Group (email address)-->
     <div class="mb-3">
         <label class="small mb-1" for="inputEmailAddress">Email address</label>
-        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
+        <input class="form-control" id="inputEmailAddress" name="email" type="email" placeholder="Enter your email address" value="{{ request.user.email }}">
     </div>
 
     <div class="row gx-3 mb-3">
         <!-- Form Group (first name)-->
         <div class="col-md-6">
             <label class="small mb-1" for="inputFirstName">Primeiro Nome</label>
-            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+            <input class="form-control" id="inputFirstName" name="first_name" type="text" placeholder="Enter your first name" value="{{ request.user.first_name }}">
         </div>
 
         <!-- Form Group (last name)-->
         <div class="col-md-6">
             <label class="small mb-1" for="inputLastName">Ultimo Nome</label>
-            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna">
+            <input class="form-control" id="inputLastName" name="last_name" type="text" placeholder="Enter your last name" value="{{ request.user.last_name }}">
         </div>
-
+        
+        
+    </div>
+    
+    <div class="row gx-3 mb-3">
         <!-- BIO-->
         <div class="col-md-6">
             <label class="small mb-1" for="inputPhone">Biografia</label>
-            <input class="form-control"  type="text" placeholder="Enter your phone number" value="blablablabal">
+            <input class="form-control" name="bio" type="text" placeholder="Enter your phone number" value="{{ request.user.profile.bio }}">
         </div>
     </div>
 
     
     <!-- Save changes button-->
-    <button class="btn btn-primary" type="button" style="position: relative; left: 600px;">Salvar</button>
+    <button class="btn btn-primary" type="submit" style="position: relative; left: 600px;">Salvar</button>
 </form>

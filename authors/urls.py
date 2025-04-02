@@ -1,8 +1,8 @@
 from django.urls import path
-from authors.view import RegisterView, teste
+from authors.view import RegisterView, UpdateView
 app_name = 'authors'
 
 urlpatterns = [
-    path('profile/', teste, name='profile'),
+    path('profile/', UpdateView.as_view(), name='profile'),
     path('register/', RegisterView.as_view(), name='register_user'),
 ]
