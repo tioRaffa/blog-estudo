@@ -24,7 +24,7 @@
               {% if request.user.is_authenticated %}
                 <div class="nav-item dropdown">
                   
-                  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="{% static 'img/blog/download.jpeg' %}" class="avatar" alt="">
+                  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="{{ user.profile.profile_pic.url }}" class="avatar" style="object-fit: cover;">
                     {{ request.user.username }}<b class="caret"></b></a>
 
                   <div class="dropdown-menu" style="margin-top: -12px;">

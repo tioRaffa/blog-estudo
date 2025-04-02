@@ -24,7 +24,7 @@
             <p>{{ post.created_at }}</p>
           </div>
           <div class="d-flex">
-            <img width="42" height="42" src="{% static 'img/blog/download.jpeg' %}" alt="">
+            <img width="42" height="42" src="{{ post.author.profile.profile_pic.url }}" style="object-fit: cover;">
           </div>
 
         </div>
