@@ -9,7 +9,6 @@
                     <button type="button" class="btn btn-outline-success">Adicionar </button> 
                 </div>
             </div>
-  
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
@@ -22,24 +21,39 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Thomas Hardy</td>
-                        <td>89 Chiaroscuro Rd.</td>
-                        <td>Portland</td>
-                        <td>97219</td>
-                        <td>
-                            <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                            <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
+                    {% for post in post_not_published  %}
+                        <tr>
+                            <td>1</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.category }}</td>
+                            <td>{{ post.created_at }}</td>
+                            <td ><i class="fa-solid fa-check fa-lg" style="color: #14ea10; margin-left: 25px;"></i></td>
+                            <td>
+                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    {% for post in post_published  %}
+                        <tr>
+                            <td>1</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.category }}</td>
+                            <td>{{ post.created_at }}</td>
+                            <td ><i class="fa-solid fa-check fa-lg" style="color: #14ea10; margin-left: 25px;"></i></td>
+                            <td>
+                                <a href="{% url 'places:detail' post.id %}" target="_blank" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
 
             </table>
-  
             {% include 'partials/content/publications_user/pagination.html' %}
-  
         </div>
     </div>  
   </div>  
