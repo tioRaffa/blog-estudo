@@ -1,0 +1,17 @@
+{% load static %}
+<form action="{% url 'authors:delete' post.id %}" method="POST" enctype="multipart/form-data" class="modal-content">
+    {% csrf_token %}
+    <div class="modal-header">
+        <div class="icon-box">
+            <i class="material-icons">&#xE86B;</i>
+            <i class="material-icons">&#xE86B;</i>
+            <i class="material-icons">&#xE645;</i>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa-solid fa-xmark" style="position: relative; right: 5px; top: -7px;"></i></button>
+    </div>
+    <div class="modal-body text-center">
+        <h4>Tem certeza que deseja REMOVER?</h4>	
+        <p>Esta ação removera a sua publicação | {{ post.title }} |</p>
+        <button class="btn btn-primary"  type="submit">Confirmar</button>
+    </div>
+</form>
