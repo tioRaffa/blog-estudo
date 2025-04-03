@@ -1,4 +1,4 @@
-<form action="{% url 'authors:profile' %}" method="POST">
+<form action="{% url 'authors:profile' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <!-- Form Group (username)-->
     <div class="mb-3">
@@ -32,9 +32,15 @@
     <div class="row gx-3 mb-3">
         <!-- BIO-->
         <div class="col-md-6">
-            <label class="small mb-1" for="inputPhone">Biografia</label>
-            <input class="form-control" name="bio" type="text" placeholder="Enter your phone number" value="{{ request.user.profile.bio }}">
+            <label class="small mb-1" >Biografia</label>
+            <textarea class="form-control" name="bio" rows="4">{{ request.user.profile.bio }}</textarea>
         </div>
+
+        <div class="form-group" style="margin-left: 20px;">
+            <label for="exampleFormControlFile1">Foto de Perfil</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="profile_pic">
+        </div>
+
     </div>
 
     

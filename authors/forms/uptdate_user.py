@@ -69,5 +69,5 @@ class UpdateProfileForm(forms.ModelForm):
             'bio'
         ]
         
-    profile_pic = forms.ImageField()
+    profile_pic = forms.FileInput()
     bio = forms.CharField(widget=forms.Textarea())
