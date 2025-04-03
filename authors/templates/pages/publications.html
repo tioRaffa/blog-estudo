@@ -1,0 +1,29 @@
+{% extends 'global/base_places.html' %}
+{% load static %}
+
+{% block links %}
+    {% include 'partials/layout/publications_user/links.html' %}
+{% endblock links %}
+
+{% block title %}
+Publicações | Detalhes
+{% endblock title %}
+
+{% block content %}
+
+<!--================Header Menu Area =================-->
+{% include 'partials/content/global/navbar.html' %}
+
+
+<!--================Publications Settings =================-->
+<br>
+{% include 'partials/content/publications_user/table.html' %}
+<br>
+<!--================ Footer =================-->
+{% include 'partials/content/global/footer.html' %}
+
+{% block script %}
+  {% include 'partials/layout/scripts.html' %}
+{% endblock script %}
+
+{% endblock content %}
