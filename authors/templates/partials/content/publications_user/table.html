@@ -1,3 +1,4 @@
+{% load bootstrap4 %}
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -6,13 +7,14 @@
                     <div class="col-sm-8"><h2>Publicações - <b>Detalhes</b></h2></div>
                 </div>
                 <div class="search-box" style="position: relative; top: -20px;">
-                    <button type="button" class="btn btn-outline-success">Adicionar </button> 
+                    <a href="{% url 'authors:create' %}" class="btn btn-outline-success" >Adicionar</a>
                 </div>
             </div>
+            {% bootstrap_messages %}
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>id</th>
                         <th>Titulo</th>
                         <th>Categoria</th>
                         <th>Criação</th>
@@ -23,7 +25,7 @@
                 <tbody>
                     {% for post in post_not_published  %}
                         <tr>
-                            <td>1</td>
+                            <td>{{ post.id }}</td>
                             <td>{{ post.title }}</td>
                             <td>{{ post.category }}</td>
                             <td>{{ post.created_at }}</td>
@@ -39,7 +41,7 @@
 
                     {% for post in post_published  %}
                         <tr>
-                            <td>1</td>
+                            <td>{{ post.id }}</td>
                             <td>{{ post.title }}</td>
                             <td>{{ post.category }}</td>
                             <td>{{ post.created_at }}</td>

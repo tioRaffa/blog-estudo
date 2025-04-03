@@ -1,0 +1,83 @@
+{% extends 'global/base_places.html' %}
+{% load static %}
+
+{% block links %}
+    {% include 'partials/layout/create_publication/links.html' %}
+{% endblock links %}
+
+{% block title %}
+Publicações | Detalhes
+{% endblock title %}
+
+{% block content %}
+
+<!--================Header Menu Area =================-->
+{% include 'partials/content/global/navbar.html' %}
+
+
+<!--================Publications Settings =================-->
+<form class="my-form">
+    <div class="container">
+      <h1>Get in touch!</h1>
+      <ul>
+        <li>
+          <select>
+            <option selected disabled>-- Please choose an option --</option>
+            <option>Request Quote</option>
+            <option>Send Resume</option>
+            <option>Other</option>      
+          </select>
+        </li>
+        <li>
+          <div class="grid grid-2">
+            <input type="text" placeholder="Name" required>  
+            <input type="text" placeholder="Surname" required>
+          </div>
+        </li>
+        <li>
+          <div class="grid grid-2">
+            <input type="email" placeholder="Email" required>  
+            <input type="tel" placeholder="Phone">
+          </div>
+        </li>    
+        <li>
+          <textarea placeholder="Message"></textarea>
+        </li>   
+          
+        <li>
+          <div class="grid grid-3">
+            <button class="btn-grid" type="submit" >
+              <span class="back">
+              </span>
+              <span class="front">SUBMIT</span>
+            </button>
+            
+        </li>   
+
+      </ul>
+    </div>
+  </form>
+  <footer>
+    
+  </footer>
+
+<script>
+    const checkbox = document.querySelector('.my-form input[type="checkbox"]');
+    const btns = document.querySelectorAll(".my-form button");
+
+    checkbox.addEventListener("change", function() {
+    const checked = this.checked;
+    for (const btn of btns) {
+        checked ? (btn.disabled = false) : (btn.disabled = true);
+    }
+    });
+</script>
+
+<!--================ Footer =================-->
+{% include 'partials/content/global/footer.html' %}
+
+{% block script %}
+  {% include 'partials/layout/scripts.html' %}
+{% endblock script %}
+
+{% endblock content %}
