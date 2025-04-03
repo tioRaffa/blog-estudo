@@ -2,8 +2,15 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from authors.forms import UpdateUserForm, UpdateProfileForm
 
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
-# LOGIN REQUIRED !!!!!!!!!!!!!!!!
+@method_decorator(
+    login_required(
+        login_url='places:index',
+        redirect_field_name='next'
+    ), name='dispatch'
+)
 class UpdateView(View):
     def render_page(self, request, form_user, form_profile):
         context = {
