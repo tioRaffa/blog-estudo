@@ -32,7 +32,7 @@
                             <td ><i class="fa-solid fa-xmark" style="color: #e70404; margin-left: 25px;"></i></td>
                             <td>
                                 <a href="#" class="view" title="View" data-toggle="tooltip" style="cursor: not-allowed;"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="{% url 'authors:update' post.id %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a href="#" class="delete" title="Delete" data-toggle="modal" data-target="#DeleteModal" hx-get="{% url 'authors:delete' post.id %}" hx-target="#DeleteContent">
                                     <i class="material-icons">&#xE872;</i></a>
                             </td>
@@ -48,7 +48,7 @@
                             <td ><i class="fa-solid fa-check fa-lg" style="color: #14ea10; margin-left: 25px;"></i></td>
                             <td>
                                 <a href="{% url 'places:detail' post.id %}" target="_blank" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="{% url 'authors:update' post.id %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a href="#" class="delete" title="Delete" data-toggle="modal" data-target="#DeleteModal" hx-get="{% url 'authors:delete' post.id %}" hx-target="#DeleteContent">
                                     <i class="material-icons">&#xE872;</i></a>
                             </td>

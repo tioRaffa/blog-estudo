@@ -1,0 +1,50 @@
+{% load static %}
+<form class="my-form" action="{% url 'authors:update' post.id %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <br>
+      <div class="container">
+        <h1>Editar Publicação</h1>
+        <ul>
+          <li>
+  
+            <div class="grid grid-2">
+              <input type="text"  name="title" value="{{ post.title }}">
+              <input type="file" placeholder="Foto" name="image" accept="image/*" >  
+            </div>
+          </li>
+  
+          <li>
+            <select name="category">
+              <option value="{{ post.category.id }}">-- {{ post.category }} --</option>
+              
+              {% for category in categories %}
+                <option value="{{ category.id }}">{{ category }}</option>
+                
+              {% endfor %}
+                
+            </select>
+          </li>
+            
+          <li>
+            <textarea placeholder="Descrição" name="description">{{ post.description }}</textarea>
+          </li>  
+          <li>
+            <textarea placeholder="Custos" name="cost">{{ post.cost }}</textarea>
+          </li>   
+          <li>
+            <textarea placeholder="Recomendações" name="recomendations">{{ post.recomendations }}</textarea>
+          </li>   
+            
+          <li>
+            <div class="grid grid-3">
+              <button class="btn-grid" type="submit" >
+                <span class="back">
+                </span>
+                <span class="">Enviar</span>
+              </button>
+              
+          </li>   
+  
+        </ul>
+      </div>
+    </form>
