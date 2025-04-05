@@ -1,0 +1,22 @@
+{% load static %}
+<section class="mb-30px">
+    <div class="container">
+      <div class="hero-banner">
+        <div class="hero-banner__content">
+          <h3>Passeios & Viagens</h3>
+          <h1>Faça Você Mesmo!</h1>
+          <h4 id="current-date"></h4>
+          <script>
+            const dateElement = document.getElementById("current-date");
+            const options = { 
+              year: "numeric", 
+              month: "long", 
+              day: "numeric" 
+            };
+            const currentDate = new Date().toLocaleDateString('pt-BR', options);
+            dateElement.textContent = currentDate;
+          </script>
+        </div>
+      </div>
+    </div>
+</section>

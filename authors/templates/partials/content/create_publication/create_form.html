@@ -1,0 +1,50 @@
+{% load static %}
+<form class="my-form">
+  {% csrf_token %}
+    <br>
+      <div class="container">
+        <h1>Criar Publicação</h1>
+        <ul>
+          <li>
+  
+            <div class="grid grid-2">
+              <input type="text" placeholder="Titulo" required name="title">
+              <input type="file" placeholder="Foto" required name="image">  
+            </div>
+          </li>
+  
+          <li>
+            <select>
+              <option selected disabled>-- Escolha a Categoria --</option>
+              
+              {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.title }}</option>
+                
+              {% endfor %}
+                
+            </select>
+          </li>
+            
+          <li>
+            <textarea placeholder="Descrição" name="description"></textarea>
+          </li>  
+          <li>
+            <textarea placeholder="Custos" name="cost"></textarea>
+          </li>   
+          <li>
+            <textarea placeholder="Recomendações" name="recomendations"></textarea>
+          </li>   
+            
+          <li>
+            <div class="grid grid-3">
+              <button class="btn-grid" type="submit" >
+                <span class="back">
+                </span>
+                <span class="">Enviar</span>
+              </button>
+              
+          </li>   
+  
+        </ul>
+      </div>
+    </form>
