@@ -17,7 +17,7 @@ class PostModel(models.Model):
     created_at = models.DateField(("Criado"), auto_now_add=True)
     cost = models.TextField(("Custos"))
     description = models.TextField(("Descrição"))
-    recommendations = models.TextField(("Recomendações"))
+    recomendations = models.TextField(("Recomendações"))
         
     author = models.ForeignKey(User, verbose_name=("Autor"), on_delete=models.CASCADE)
     category = models.ForeignKey(CategoryModel, verbose_name=("Categoria"), on_delete=models.CASCADE)

@@ -7,6 +7,12 @@ from django.contrib.auth.decorators import login_required
 
 
 
+@method_decorator(
+    login_required(
+        login_url='places:index',
+        redirect_field_name='next',
+    ), name='dispatch'
+)
 class CreatePostView(FormView):
     form_class = CreatePostForm
     template_name = 'pages/create_publication.html'
@@ -21,13 +27,16 @@ class CreatePostView(FormView):
         return context
     
     def form_valid(self, form):
-        post: PostModel = form.save(commit=False) 
+        print(form.cleaned_data)
+        post: PostModel = form.save(commit=False)
+        post.is_published = False
         post.author = self.request.user
         
         category = self.request.POST.get('category')
         post.category = CategoryModel.objects.get(id=category)
         
         post.save()
+        
         
         return super().form_valid(form)
     

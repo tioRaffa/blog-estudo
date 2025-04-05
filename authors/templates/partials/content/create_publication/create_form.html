@@ -1,5 +1,5 @@
 {% load static %}
-<form class="my-form">
+<form class="my-form" action="{% url 'authors:create' %}" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
     <br>
       <div class="container">
@@ -9,16 +9,16 @@
   
             <div class="grid grid-2">
               <input type="text" placeholder="Titulo" required name="title">
-              <input type="file" placeholder="Foto" required name="image">  
+              <input type="file" placeholder="Foto" required name="image" accept="image/*">  
             </div>
           </li>
   
           <li>
-            <select>
-              <option selected disabled>-- Escolha a Categoria --</option>
+            <select name="category">
+              <option selected disabled value="None">-- Escolha a Categoria --</option>
               
               {% for category in categories %}
-                <option value="{{ category.id }}">{{ category.title }}</option>
+                <option value="{{ category.id }}">{{ category }}</option>
                 
               {% endfor %}
                 

@@ -5,5 +5,5 @@ class CreatePostForm(forms.ModelForm):
     class Meta:
         model = PostModel
         fields = [
-            'title', 'image', 'description', 'recommendations', 'category'
+            'title', 'image', 'description', 'recomendations', 'category', 'cost'
         ]
