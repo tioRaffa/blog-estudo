@@ -5,7 +5,18 @@ from authors.forms import UpdatePostForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
+
+
+
+@method_decorator(
+    login_required(
+        login_url='places:index',
+        redirect_field_name='next'
+    ), name='dispatch'
+)
 class UpdatePostModel(View):
     
     def render_page(self, request, form, categories, post):

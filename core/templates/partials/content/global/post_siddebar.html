@@ -9,7 +9,7 @@
         <ul class="cat-list mt-20">
           {% for category in categories %}
             <li>
-              <a href="{% url 'places:category' category.id %}" class="d-flex justify-content-between" style="text-decoration: none;">
+              <a href="{% url 'places:category' category.id %}" class="d-flex justify-content-between">
                 <p>{{ category }}</p>
               </a>
             </li>
@@ -24,19 +24,24 @@
         <div class="popular-post-list">
           {% for recent in recents %}
             <div class="single-post-list">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="{{ recent.image.url }}" alt="" height="180px">
-                <ul class="thumb-info" style="position: relative; top: -30px;">
-                  <li><a href="#">{{ recent.author.username }}</a></li>
-                  <li><a href="#">{{ recent.created_at|date:"d/m/Y" }}</a></li>
+              <div class="thumb" style="display: flex; align-items: center;">
+                <img class="card-img rounded-0" src="{{ recent.image.url }}" alt="" height="180px" style="margin-right: 10px;">
+                
+                <ul class="thumb-info" style="list-style: none; margin: 0; padding: 0;">
+                  <li>
+                    <a href="#" style="white-space: nowrap;">
+                      {{ recent.author.username }} | {{ recent.created_at|date:"d/m/Y" }}
+                    </a>
+                  </li>
                 </ul>
               </div>
-              <div class="details mt-20" style="position: relative; top: -36px;">
+              <div class="details mt-20" style="position: relative; top: -16px;">
                 <a href="{% url 'places:detail' recent.id %}" style="text-decoration: none;">
                   <h6 style="color: black;">{{ recent.title }}</h6>
                 </a>
               </div>
             </div>
+            <br>
           {% endfor %}
         </div>
       </div>
