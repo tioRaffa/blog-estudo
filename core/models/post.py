@@ -28,3 +28,17 @@ class PostModel(models.Model):
 
     def get_absolute_url(self):
         return reverse("places:detail", kwargs={"pk": self.pk})
+    
+
+class Comment(models.Model):
+    class Meta:
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
+
+    post = models.ForeignKey(PostModel, on_delete=models.CASCADE)
+    message = models.CharField(("Mensagem") ,max_length=200)
+    author = models.ForeignKey(User ,on_delete=models.CASCADE)
+    created_at = models.DateField(("Comentado em") ,auto_now_add=True)
+
+    def __str__(self):
+        return f"Comentário de {self.author.username} no post '{self.post.title}'"

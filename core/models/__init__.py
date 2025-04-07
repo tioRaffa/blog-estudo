@@ -1,1 +1,1 @@
-from .post import PostModel, CategoryModel
+from .post import PostModel, CategoryModel, Comment

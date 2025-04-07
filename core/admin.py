@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PostModel, CategoryModel
+from .models import PostModel, CategoryModel, Comment
 # Register your models here.
 
 @admin.register(CategoryModel)
@@ -18,3 +18,7 @@ class PostModelAdmin(admin.ModelAdmin):
         'is_published',
     ]
     ordering = ['-id']
+    
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['author', 'post']

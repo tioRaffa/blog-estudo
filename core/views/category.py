@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from core.models import PostModel, CategoryModel
+from core.models import PostModel, CategoryModel, Comment
 from .cbv_base import BaseView
 
 class CategoryPage(BaseView, ListView):
@@ -23,8 +23,12 @@ class CategoryPage(BaseView, ListView):
         category_id = self.kwargs.get('id')
         category_title = CategoryModel.objects.get(id=category_id)
         
+        post = context['posts']
+        comments = Comment.objects.filter(post__in=post).order_by('created_at')
+        
         context.update({
-            'category_title': category_title
+            'category_title': category_title,
+            'comments': comments.count()
         })
         
         return context
