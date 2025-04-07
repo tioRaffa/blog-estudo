@@ -8,7 +8,7 @@
             <div class="single-comment justify-content-between d-flex">
                 <div class="user justify-content-between d-flex">
                     <div class="thumb">
-                        <img src="{{ comment.author.profile.profile_pic.url }}" height="80px">
+                        <img src="{{ comment.author.profile.profile_pic.url }}" height="80px" width="60px" style="object-fit: cover;">
                     </div>
                     <div class="desc">
                         <h5><a href="#">{{ comment.author.first_name }} {{ comment.author.last_name }}</a></h5>
