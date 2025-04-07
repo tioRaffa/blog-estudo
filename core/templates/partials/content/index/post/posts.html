@@ -8,7 +8,7 @@
           <ul class="thumb-info" style="position: relative; top: -50px; ">
             <li><a href="#"><i class="ti-user"></i>{{ post.author.username }}</a></li>
             <li><a href="#"><i class="ti-notepad"></i>{{ post.created_at|date:"d/m/Y" }}</a></li>
-            <li><a href="#"><i class="ti-themify-favicon"></i>{{ comments }} Comentarios</a></li>
+            <li><a href="#"><i class="ti-themify-favicon"></i>{{ post.comments.count }} Comentarios</a></li>
           </ul>
         </div>
         <div class="details mt-20" style="position: relative; top: -80px;">

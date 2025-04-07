@@ -35,8 +35,8 @@ class Comment(models.Model):
         verbose_name = "Comment"
         verbose_name_plural = "Comments"
 
-    post = models.ForeignKey(PostModel, on_delete=models.CASCADE)
-    message = models.CharField(("Mensagem") ,max_length=200)
+    post = models.ForeignKey(PostModel, on_delete=models.CASCADE, related_name='comments')
+    message = models.TextField(("Mensagem"))
     author = models.ForeignKey(User ,on_delete=models.CASCADE)
     created_at = models.DateField(("Comentado em") ,auto_now_add=True)
 
