@@ -23,7 +23,7 @@ Projeto pessoal de um blog de viagens desenvolvido com Django e Django REST Fram
 - Python
 - Django Web
 - PostgreSQL
-- HTML/CSS (templates básicos)
+- HTML/CSS
 - Git/GitHub
 
 ---
